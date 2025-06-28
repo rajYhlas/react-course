@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Age from "./components/Age"
 import WishList from "./components/WishList"
+import ToggleButton from "./components/ToggleButton"
 
 
 function App() {
@@ -12,8 +13,7 @@ function App() {
 
   return (
     <>
-      <p>{count}</p>
-      <button onClick={onChangeCount}>count ++</button>
+      <ToggleButton/>
     </>
   )
 }
