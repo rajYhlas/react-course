@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "../api/axios";
 
 const AddPost = (props) => {
     const [newPostTitle, setNewPostTitle] = useState('')
@@ -7,8 +8,9 @@ const AddPost = (props) => {
         setNewPostTitle(e.target.value);
     }
 
-    const onSubmit = () => {
-        props.onAddPost(newPostTitle)
+    const onSubmit = async () => {
+        const {data} = await axios.post('/posts', {title: newPostTitle});
+        props.onAddPost(data);
         setNewPostTitle('')
     }
 
